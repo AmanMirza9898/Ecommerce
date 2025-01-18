@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Display</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Swiper CSS -->
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper/swiper-bundle.min.css"
+/>
+  <style>
+    /* Hide Scrollbar */
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none; /* For Chrome, Safari, and Edge */
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+      scrollbar-width: none;    /* For Firefox */
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Product Section -->
+  <div class="max-w-screen-xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- Product Image left section -->
+     <div>
+        <div class="flex justify-center">
+            <img src="imgs/mushroom-decor_3.webp" alt="Gold Mushrooms Wooden Decor Showpieces" class="h-[300px] sm:h-[600px]">
+          </div>
+
+         <!-- Carousel Container -->
+  <div class="relative max-w-screen-md mx-auto mt-8">
+    <!-- Left Arrow -->
+    <button onclick="scrollCarousel('left')" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-100 p-2 rounded-full shadow hover:bg-gray-200 z-10">
+      &#8249;
+    </button>
+
+    <!-- Images Wrapper -->
+    <div id="carousel" class="flex  overflow-x-auto hide-scrollbar scroll-smooth">
+      <!-- Image 1 -->
+      <div class="shrink-0 w-48">
+        <img src="imgs/mushroom-3.avif" alt="Image 1" class="rounded-md shadow cursor-pointer sm:h-[120px] h-[100px]" onclick="showModal('mushroom-3.avif')">
+      </div>
+      <!-- Image 2 -->
+      <div class="shrink-0 w-48">
+        <img src="imgs/mushroom-4.webp" alt="Image 2" class="rounded-md shadow cursor-pointer sm:h-[120px] h-[100px]" onclick="showModal('mushroom-4.webp')">
+      </div>
+      <!-- Image 3 -->
+      <div class="shrink-0 w-48">
+        <img src="imgs/mushroom-5.avif" alt="Image 3" class="rounded-md shadow cursor-pointer sm:h-[120px] h-[100px]" onclick="showModal('mushroom-5.avif')">
+      </div>
+      <!-- Image 4 -->
+      <div class="shrink-0 w-48">
+        <img src="imgs/mushrom-6.avif" alt="Image 4" class="rounded-md shadow cursor-pointer sm:h-[120px] h-[100px]" onclick="showModal('mushrom-6.avif')">
+      </div>
+      <!-- Image 5 -->
+      <div class="shrink-0 w-48">
+        <img src="imgs/mushroom-7.webp" alt="Image 5" class="rounded-md shadow cursor-pointer sm:h-[120px] h-[100px]" onclick="showModal('mushroom-7.webp')">
+      </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button onclick="scrollCarousel('right')" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-100 p-2 rounded-full shadow hover:bg-gray-200 z-10">
+      &#8250;
+    </button>
+  </div>
+
+  <!-- Full-Screen Modal -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50">
+    <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-3xl">&times;</button>
+    <img id="imgs/modalImage" src="" alt="Fullscreen Image" class="max-w-full max-h-full rounded-lg">
+  </div>
+
+  <script>
+    function scrollCarousel(direction) {
+      const carousel = document.getElementById('carousel');
+      const scrollAmount = 200; // Adjust scroll amount per click
+      if (direction === 'left') {
+        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      } else {
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    }
+
+    function showModal(imageSrc) {
+      const modal = document.getElementById('modal');
+      const modalImage = document.getElementById('modalImage');
+      modalImage.src = imageSrc;
+      modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.classList.add('hidden');
+    }
+  </script>
+     </div>
+   
+
+    
+
+    <!-- Product Details right section -->
+    <div>
+      <!-- Title -->
+      <h1 class="text-2xl font-semibold text-gray-800 mb-2">Gold Mushrooms Wooden Decor Showpieces <br> Set Of 3</h1>
+      <!-- Rating -->
+      <div class="flex items-center mb-4">
+        <span class="text-yellow-500 text-xl mr-1">★★★★★</span>
+        <span class="text-sm text-gray-500">(2)</span>
+      </div>
+      <!-- Price -->
+      <div class="mb-4">
+        <span class="text-2xl font-bold text-gray-800">₹ 1,390</span>
+        <span class="text-lg text-gray-400 line-through ml-2">₹ 2,160</span>
+        <span class="text-lg text-red-600 ml-2">36% Off</span>
+      </div>
+      <!-- Quantity Selector -->
+      <div class="flex items-center space-x-4 mb-4">
+        <button class="px-2 py-1 border border-gray-300 rounded-md">-</button>
+        <span class="text-lg font-medium">1</span>
+        <button class="px-2 py-1 border border-gray-300 rounded-md">+</button>
+      </div>
+      <!-- Bulk Purchase Link -->
+      <p class="text-sm text-gray-600 mb-4">
+        Want to buy this in bulk? <a href="#" class="text-blue-600 underline">Click here</a>
+      </p>
+      <!-- Offers -->
+      <div class="border border-gray-300 rounded-md p-4 mb-4">
+        <h3 class="text-lg font-semibold text-red-600 mb-2">BEST OFFERS FOR YOU!</h3>
+        <p class="text-sm text-gray-600 mb-2">Get 5% off sitewide No minimum spend</p>
+        <p class="text-sm text-gray-600 mb-4">
+          Use Code: <span class="text-gray-800 font-medium border px-2 py-1 rounded-md">MAKEHOMESPECIAL</span>
+        </p>
+        <p class="text-sm text-gray-600 mb-2">Get Rs.150 off on your first order Min. purchase of Rs.1500</p>
+        <p class="text-sm text-gray-600">
+          Use Code: <span class="text-gray-800 font-medium border px-2 py-1 rounded-md">NESTTRY</span>
+        </p>
+      </div>
+      <!-- Add to Cart and Buy Now Buttons -->
+      <div class="flex space-x-4 mb-4">
+        <button class="bg-yellow-600 text-white px-6 py-2 rounded-md shadow hover:bg-yellow-700">Add to cart</button>
+        <button class="bg-gray-800 text-white px-6 py-2 rounded-md shadow hover:bg-gray-900">Buy Now</button>
+      </div>
+      <!-- Social Media Links -->
+      <div class="flex space-x-4 text-gray-600 text-xl">
+        <a href="#" class="hover:text-gray-800"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="hover:text-gray-800"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="hover:text-gray-800"><i class="fab fa-pinterest"></i></a>
+      </div>
+
+      <div class="max-w-screen-md mx-auto px-4 py-8">
+        <!-- Social Media Icons -->
+        <div class="flex space-x-4 text-gray-600 text-xl mb-6">
+          <a href="#" class="hover:text-gray-800"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="hover:text-gray-800"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="hover:text-gray-800"><i class="fab fa-pinterest"></i></a>
+        </div>
+    
+        <!-- Description -->
+        <div>
+          <h2 class="text-lg font-semibold mb-2">Description</h2>
+          <p class="text-base text-gray-600 leading-relaxed">
+            Bring a whimsical touch to your holiday decor with this set of 3 mushroom showpieces, crafted in different sizes to create a charming arrangement. Perfect for Christmas decorations, these elegant mushroom wooden decor pieces blend natural elements with festive metallic accents for a timeless appeal.
+          </p>
+          <a href="#" class="text-blue-600 underline text-sm mt-2 inline-block">Read More</a>
+        </div>
+    
+        <hr class="my-4">
+    
+        <!-- Accordion Sections -->
+        <div class="space-y-4">
+          <!-- Features -->
+          <div>
+            <button onclick="toggleAccordion('features')" class="w-full text-left font-semibold text-lg py-2 border-b border-gray-300 flex justify-between items-center">
+              Features <span>&#x25BC;</span>
+            </button>
+            <div id="features" class="hidden text-sm text-gray-600 leading-relaxed mt-2">
+              This section can include key features of the product.
+            </div>
+          </div>
+    
+          <!-- Size & Detail -->
+          <div>
+            <button onclick="toggleAccordion('size-detail')" class="w-full text-left font-semibold text-lg py-2 border-b border-gray-300 flex justify-between items-center">
+              Size & Detail <span>&#x25BC;</span>
+            </button>
+            <div id="size-detail" class="hidden text-sm text-gray-600 leading-relaxed mt-2">
+              This section can include size and details of the product.
+            </div>
+          </div>
+    
+          <!-- Products Included -->
+          <div>
+            <button onclick="toggleAccordion('products-included')" class="w-full text-left font-semibold text-lg py-2 border-b border-gray-300 flex justify-between items-center">
+              Products Included <span>&#x25BC;</span>
+            </button>
+            <div id="products-included" class="hidden text-sm text-gray-600 leading-relaxed mt-2">
+              This section can include a list of products included in the package.
+            </div>
+          </div>
+    
+          <!-- Returns -->
+          <div>
+            <button onclick="toggleAccordion('returns')" class="w-full text-left font-semibold text-lg py-2 border-b border-gray-300 flex justify-between items-center">
+              Returns <span>&#x25BC;</span>
+            </button>
+            <div id="returns" class="hidden text-sm text-gray-600 leading-relaxed mt-2">
+              This section can include the return policy.
+            </div>
+          </div>
+    
+          <!-- Care Instructions -->
+          <div>
+            <button onclick="toggleAccordion('care-instructions')" class="w-full text-left font-semibold text-lg py-2 border-b border-gray-300 flex justify-between items-center">
+              Care Instructions <span>&#x25BC;</span>
+            </button>
+            <div id="care-instructions" class="hidden text-sm text-gray-600 leading-relaxed mt-2">
+              This section can include care instructions for the product.
+            </div>
+          </div>
+    
+          <!-- Shipping -->
+          <div>
+            <button onclick="toggleAccordion('shipping')" class="w-full text-left font-semibold text-lg py-2 border-b border-gray-300 flex justify-between items-center">
+              Shipping <span>&#x25BC;</span>
+            </button>
+            <div id="shipping" class="hidden text-sm text-gray-600 leading-relaxed mt-2">
+              This section can include shipping details.
+            </div>
+          </div>
+    
+          <!-- More Information -->
+          <div>
+            <button onclick="toggleAccordion('more-info')" class="w-full text-left font-semibold text-lg py-2 border-b border-gray-300 flex justify-between items-center">
+              More Information <span>&#x25BC;</span>
+            </button>
+            <div id="more-info" class="hidden text-sm text-gray-600 leading-relaxed mt-2">
+              This section can include additional product information.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="max-w-7xl mx-auto py-8 px-4">
+    <h2 class="text-2xl font-semibold text-center mb-6">People Also Shopped For</h2>
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <div class="flex flex-col lg:flex-row items-center justify-between space-y-6 lg:space-y-0">
+        <!-- Product 1 -->
+        <div class="flex flex-col items-center">
+          <img src="imgs/img2.avif" alt="Gold Mushrooms" class="w-64 h-64 object-cover rounded-md">
+          <p class="mt-4 text-center font-semibold">Gold Mushrooms Wooden Decor Showpieces Set Of 3</p>
+          <p class="mt-2 text-lg font-bold text-gray-800">₹1,390 <span class="text-gray-500 line-through">₹2,160</span> <span class="text-red-500">(36% Off)</span></p>
+        </div>
+
+        <!-- Plus Icon -->
+        <div class="text-2xl font-bold text-gray-500">+</div>
+
+        <!-- Product 2 -->
+        <div class="flex flex-col items-center">
+          <img src="imgs/img3.avif" alt="Silver Snowflake" class="w-64 h-64 object-cover rounded-md">
+          <p class="mt-4 text-center font-semibold">Set Of 2 Silver Snowflake Tea Light Candle Holder</p>
+          <p class="mt-2 text-lg font-bold text-gray-800">₹480 <span class="text-gray-500 line-through">₹729</span> <span class="text-red-500">(33% Off)</span></p>
+        </div>
+
+        <!-- Total Price Section -->
+        <div class="flex flex-col items-center">
+          <p class="text-xl font-semibold mb-2">Total Price ₹1,870</p>
+          <button class="bg-yellow-700 text-white font-medium py-2 px-6 rounded-md hover:bg-yellow-600 transition">ADD ALL 2 TO CART</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="max-w-7xl mx-auto py-8 px-4">
+    <h2 class="text-2xl font-semibold text-center mb-6">Customer Reviews</h2>
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <!-- Overall Rating -->
+      <div class="flex flex-col items-center mb-6">
+        <div class="flex items-center space-x-1">
+          <span class="text-yellow-500 text-xl">&#9733;</span>
+          <span class="text-yellow-500 text-xl">&#9733;</span>
+          <span class="text-yellow-500 text-xl">&#9733;</span>
+          <span class="text-yellow-500 text-xl">&#9733;</span>
+          <span class="text-yellow-500 text-xl">&#9733;</span>
+        </div>
+        <p class="text-gray-600 mt-2">Based on 2 reviews</p>
+      </div>
+
+      <!-- Reviews Section -->
+      <div>
+        <!-- Sort Dropdown -->
+        <div class="flex justify-end mb-4">
+          <select class="border border-gray-300 rounded-md p-2 text-gray-600">
+            <option>Most Recent</option>
+            <option>Highest Rating</option>
+            <option>Lowest Rating</option>
+            <option>Only Pictures</option>
+            <option>Pictures First</option>
+            <option>Videos First</option>
+            <option>Most Helpful</option>
+          </select>
+        </div>
+
+        <!-- Review 1 -->
+        <div class="border-b border-gray-200 pb-6 mb-6">
+          <div class="flex items-start space-x-4">
+            <img src="imgs/https://via.placeholder.com/100" alt="Reviewer Image" class="w-16 h-16 rounded-full object-cover">
+            <div>
+              <div class="flex items-center space-x-2">
+                <span class="text-yellow-500 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="text-sm text-gray-500">12/23/2024</span>
+              </div>
+              <h4 class="font-semibold">WOODEN MUSHROOMS</h4>
+              <p class="text-sm text-gray-600 mt-2">Loved it. Goes well with my Christmas decorations ❤️</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div>
+          <div class="flex items-start space-x-4">
+            <img src="imgs/https://via.placeholder.com/100" alt="Reviewer Image" class="w-16 h-16 rounded-full object-cover">
+            <div>
+              <div class="flex items-center space-x-2">
+                <span class="text-yellow-500 text-lg">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span class="text-sm text-gray-500">12/18/2024</span>
+              </div>
+              <h4 class="font-semibold">CUTE MUSHROOMS</h4>
+              <p class="text-sm text-gray-600 mt-2">Very good quality and lovely decor items that made the scene complete for me. Extremely well packed as well.</p>
+              <img src="imgs/mushroom-2.avif" alt="Product Image" class="mt-4 w-32 h-32 object-cover rounded-md">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+   <!-- Carousel Section -->
+   <div class="max-w-screen-xl mx-auto py-8  px-4">
+    <h1 class="text-center text-3xl font-serif uppercase text-gray-700 mb-8">More In Beauty Objects</h1>
+
+    <!-- Swiper Carousel -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper  ">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+            <!-- Image 1 -->
+            <div>
+              <img
+                src="imgs/img2.avif"
+                alt="The Brand"
+                class="w-[300px] h-auto rounded-lg transition-transform duration-300 hover:scale-105"
+              />
+              <h2 class="text-center text-lg font-medium mt-2 text-gray-700 uppercase">The Brand</h2>
+            </div>
+
+
+            
+
+            
+            <!-- Image 2 -->
+            <div>
+              <img
+                src="imgs/img3.avif"
+                alt="Art of Gifting"
+                class="w-[300px] h-auto rounded-lg transition-transform duration-300 hover:scale-105"
+              />
+              <h2 class="text-center text-lg font-medium mt-2 text-gray-700 uppercase">Art of Gifting</h2>
+            </div>
+
+            <!-- Image 1 -->
+            <div>
+                <img
+                  src="imgs/img2.avif"
+                  alt="The Brand"
+                  class="w-[300px] h-auto rounded-lg transition-transform duration-300 hover:scale-105"
+                />
+                <h2 class="text-center text-lg font-medium mt-2 text-gray-700 uppercase">The Brand</h2>
+              </div>
+
+              <div>
+                <img
+                  src="imgs/img3.avif"
+                  alt="Art of Gifting"
+                  class="w-[300px] h-auto rounded-lg transition-transform duration-300 hover:scale-105"
+                />
+                <h2 class="text-center text-lg font-medium mt-2 text-gray-700 uppercase">Art of Gifting</h2>
+              </div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+            <!-- Image 3 -->
+            <div>
+              <img
+                src="imgs/pink_wreath_1_250x.avif"
+                alt="Elegant Decor"
+                class="w-[300px] h-auto rounded-lg transition-transform duration-300 hover:scale-105"
+              />
+              <h2 class="text-center text-lg font-medium mt-2 text-gray-700 uppercase">Elegant Decor</h2>
+            </div>
+            <!-- Image 4 -->
+            <div>
+              <img
+                src="imgs/ReedDiffuser_1_dd78512a-2252-49be-8f4d-ddaf7af831b7_250x.avif"
+                alt="Luxury Living"
+                class="w-[300px] h-auto rounded-lg transition-transform duration-300 hover:scale-105"
+              />
+              <h2 class="text-center text-lg font-medium mt-2 text-gray-700 uppercase">Luxury Living</h2>
+            </div>
+
+            <div>
+                <img
+                  src="imgs/pink_wreath_1_250x.avif"
+                  alt="Elegant Decor"
+                  class="w-[300px] h-auto rounded-lg transition-transform duration-300 hover:scale-105"
+                />
+                <h2 class="text-center text-lg font-medium mt-2 text-gray-700 uppercase">Elegant Decor</h2>
+              </div>
+
+              <!-- Image 4 -->
+            <div>
+                <img
+                  src="imgs/ReedDiffuser_1_dd78512a-2252-49be-8f4d-ddaf7af831b7_250x.avif"
+                  alt="Luxury Living"
+                  class="w-[300px] h-auto rounded-lg transition-transform duration-300 hover:scale-105"
+                />
+                <h2 class="text-center text-lg font-medium mt-2 text-gray-700 uppercase">Luxury Living</h2>
+              </div>
+
+          </div>
+          
+        </div>
+      </div>
+      <!-- Navigation buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 1,
+          spaceBetween: 30,
+        },
+      },
+    });
+  </script>
+
+  <!-- Main Container -->
+ <div class="mx-auto  sm:px-20 p-4">
+    <!-- Popular Category -->
+    <div>
+      <h2 class="text-lg md:text-xl font-semibold text-gray-700 mb-2">Popular Category</h2>
+      <p class="text-base md:text-[16px] text-gray-600 leading-relaxed mb-4">
+        Dinner Set, Cup - Mug, Cake Stand, Tea Sets, Plate, Pasta Plates, Coasters, Teapots, Ramen Bowls, Snack Plate, Trays, Tea Set With Kettle, Rugs, Dinner Plate, Cottagecore
+      </p>
+    </div>
+  
+    <!-- Gifts for Festivals/ Occasions -->
+    <div>
+      <h2 class="text-lg md:text-xl font-semibold text-gray-700 mb-2">Gifts for Festivals/ Occasions</h2>
+      <p class="text-base md:text-[16px] text-gray-600 leading-relaxed mb-4">
+        Christmas Gifts, Christmas Decor, Secret Santa Gifts, Children's Day Gifts, Gifts For New Year, New Year Gifts For Corporates
+      </p>
+    </div>
+  
+    <!-- Gifts for Special Occasions -->
+    <div>
+      <h2 class="text-lg md:text-xl font-semibold text-gray-700 mb-2">Gifts for Special Occasions</h2>
+      <p class="text-base md:text-[16px] text-gray-600 leading-relaxed mb-4">
+        Anniversary Gifts, Wedding Gifts, Housewarming Gifts, Baby Shower Gifts, Birthday Gifts, Farewell Gifts
+      </p>
+    </div>
+  
+    <!-- Gifts by Relationships -->
+    <div>
+      <h2 class="text-lg md:text-xl font-semibold text-gray-700 mb-2">Gifts by Relationships</h2>
+      <p class="text-base md:text-[16px] text-gray-600 leading-relaxed mb-4">
+        Gifts for Wife, Gifts for Husband, Gifts for Sister, Gifts for Brother, Gifts for Friends, Gifts for Mother, Gifts for Father, Gifts for Girlfriend, Gifts for Colleagues, Christmas Gifts For Him, Christmas Gifts For Her, Christmas Gifts For Kids, New Year Gifts For Family, New Year Gifts For Her, New Year Gifts For Him
+      </p>
+    </div>
+  
+    <!-- Popular Searches -->
+    <div>
+      <h2 class="text-lg md:text-xl font-semibold text-gray-700 mb-2">Popular Searches</h2>
+      <p class="text-base md:text-[16px] text-gray-600 leading-relaxed">
+        Tote Bags, Marble Dinnerset, Chef Decor, Tissue Box, Bowls With Chopsticks, Bread Plate, Leaf Platter, Nitori Side Bowl, Bathroom Set, Lunch Bag, Incense Diffuser, Modern Cutlery Set, Vera Black Plates, House Plant Pots, Angel Decor, Scoop Spoon, Christmas Gifts, Water Bottles, Floor Mats, Cushion Covers, Rugs
+      </p>
+    </div>
+  </div>
+  
+
+  <!-- Footer Container -->
+ <footer class="bg-gray-50 text-gray-700 py-8">
+    <div class="max-w-screen-lg mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <!-- Logo and Stay in Touch -->
+        <div>
+          <h1 class="text-4xl font-serif text-gray-800 mb-4">nestasia</h1>
+          <h2 class="text-lg font-semibold mb-2">Stay In Touch</h2>
+          <p class="text-base text-gray-600 mb-4">Sign up for exclusive offers, original stories, events and more.</p>
+          <div class="flex items-center border-b border-gray-400 py-2">
+            <input type="email" placeholder="Enter Email" class="w-full text-base outline-none">
+            <button class="ml-2 text-xl text-gray-600">&rarr;</button>
+          </div>
+          <h3 class="text-lg font-semibold mt-6 mb-2">Contact us</h3>
+          <p class="text-base text-gray-600 flex items-center mb-2">
+            <span class="material-icons-outlined mr-2">mail</span>
+            info@nestasia.in
+          </p>
+          <p class="text-base text-gray-600 flex items-center">
+            <span class="material-icons-outlined mr-2">whatsapp</span>
+            +91 9903504754
+          </p>
+        </div>
+  
+        <!-- Top Categories -->
+        <div>
+          <h2 class="text-lg font-semibold mb-4">Top Categories</h2>
+          <ul class="space-y-2">
+            <li>Dining</li>
+            <li>Kitchen</li>
+            <li>Décor</li>
+            <li>Bath + Storage</li>
+            <li>Gifts</li>
+            <li>Bag</li>
+            <li>Luxe</li>
+            <li>Soft Furnishing</li>
+            <li>Stationery</li>
+          </ul>
+        </div>
+  
+        <!-- Decor -->
+        <div>
+          <h2 class="text-lg font-semibold mb-4">Decor</h2>
+          <ul class="space-y-2">
+            <li>Flower Vases</li>
+            <li>Candles + Votives</li>
+            <li>Photo Frame</li>
+            <li>Decor Objects</li>
+            <li>Dried Flowers</li>
+            <li>Wall Decor</li>
+            <li>Wall Mirror</li>
+            <li>Boxes</li>
+          </ul>
+        </div>
+  
+        <!-- About Us -->
+        <div>
+          <h2 class="text-lg font-semibold mb-4">About us</h2>
+          <ul class="space-y-2">
+            <li>Our Story</li>
+            <li>Store Locator</li>
+            <li>Blog</li>
+            <li>Careers</li>
+            <li>Designer Affiliate Program</li>
+          </ul>
+        </div>
+  
+        <!-- Quick Links -->
+        <div>
+          <h2 class="text-lg font-semibold mb-4">Quick Links</h2>
+          <ul class="space-y-2">
+            <li>Shop All</li>
+            <li>Christmas Gifts</li>
+            <li>Christmas Decor</li>
+            <li>Sale</li>
+            <li>Gift Cards</li>
+            <li>Offers</li>
+            <li>Create a Return</li>
+            <li>Shipping</li>
+            <li>Privacy Policy</li>
+            <li>FAQs</li>
+          </ul>
+        </div>
+      </div>
+  
+      <!-- Bottom Section -->
+      <!-- <div class="mt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-sm text-gray-500">New Leaf Retail Technologies Private Limited © 2024</p>
+        <div class="mt-4 md:mt-0 flex items-center space-x-4">
+          <span class="text-sm text-gray-500">We Accept</span>
+          <img src="Logo-VISA-transparent-PNG.png" alt="Visa" class="h-[50px]">
+          <img src="png-clipart-logo-mastercard-scalable-graphics-font-mastercard-text-logo-thumbnail.png" alt="Mastercard" class="h-[50px]">
+          <img src="png-clipart-india-rupay-debit-card-bank-credit-card-india-text-trademark.png" alt="RuPay" class="h-[40px]">
+          <img src="png-transparent-paytm-standalone-hd-logo.png" alt="Paytm" class="h-[20px]">
+        </div>
+      </div> -->
+    </div>
+  </footer>
+</body>
+</html>
